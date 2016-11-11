@@ -34,7 +34,7 @@ int main()
         usleep(500000);
         exit(0);
     }
-    
+
     // Parent process prints values
     fprintf(stderr, "Hello I am the parent process\n"
                     "\tMy pid is %d\n"
@@ -43,7 +43,11 @@ int main()
 
 
     // wait for the child and terminate
-    wait(&status);
+    pid_t err = wait(&status);
+    if (err <= 0)  {
+        fprintf(stderr,"Error\n");
+        exit(1);
+    }
     fprintf(stderr, "Child Process with pid %i terminated\n", pid);
 
     /**
