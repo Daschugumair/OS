@@ -17,18 +17,20 @@ int main()
     else if(pid==0)
     {
         my_value = 18951;
-        fprintf(stderr, "Hello I am the child process\n");
-        fprintf(stderr, "My pid is %d\n",getpid());
-        fprintf(stderr, "my_value is %i\n", my_value);
+        fprintf(stderr, "Hello I am the child process\n"
+                        "\tMy pid is %d\n"
+                        "\tmy_value is %i\n",
+                        getpid(), my_value);
         usleep(500000);
         exit(0);
     }
     else
     {
         wait(&status);
-        fprintf(stderr, "Hello I am the parent process\n");
-        fprintf(stderr, "My pid is %d\n",getpid());
-        fprintf(stderr, "my_value is %i\n", my_value);
+        fprintf(stderr, "Hello I am the parent process\n"
+                        "\tMy pid is %d\n"
+                        "\tmy_value is %i\n",
+                        getpid(), my_value);
         exit(0);
     }
 }
