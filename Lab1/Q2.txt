@@ -1,7 +1,5 @@
 Question 2.1
 
-The output is always the same for the 100 runs, apart from the changing PIDs. Both threads print 18951 for my_value.
+The output differs for the 100 runs. Apart from the changing PIDs, the value for my_value in the parents thread can be 42 or 18951. Additionally the order of the child and parent output is changing.
 
-There are two differences to the program for task 1.1. The first is that my_value is 18951 for both threads. The second is that the output order does not change.
-
-The effect is easily explainable: The usleep command after the pthread_create causes this. The sub thread is called and executed much more likely before the main thread continues because of it. If the usleep command is removed the execution order will not be the same across many runs of the program. Then it can happen that my_value will be 42 for the main thread and 18951 for the sub thread and the main thread prints before the sub thread prints.
+The processes in task 1 have distinct address spaces. Here both threads use the same address space and therefore see changes on global data. The child always prints 18951 because it changes 'my_value' itself and then prints it. But depending on the scheduling the child will sometimes change it before the parent reads it and sometimes afterwards. That's why the value printed by the parent thread differs for many executions.
