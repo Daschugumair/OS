@@ -1,0 +1,5 @@
+Question 1.1
+
+The output is not always the same. The order in which the parent and child print can vary after the fork. Also the PIDs change, obviously. 
+
+The values that the child process and the parent process print for my_value never change and the parent prints 42 and the child prints 18951. This is because each process has its own copy of the memory. Changing a variable in the child process does not affect the parent process in any way and vice versa.
