@@ -4,26 +4,31 @@
 #include<sys/wait.h>
 int main()
 {
+    int my_value = 42;
     int status;
     int pid;
     pid=fork();
+    usleep(150000);
     if(pid<0)
     {
-        printf("\n Error ");
+        fprintf(stderr,"Error\n");
         exit(1);
     }
     else if(pid==0)
     {
-        printf("\n Hello I am the child process ");
-        printf("\n My pid is %d ",getpid());
+        my_value = 18951;
+        fprintf(stderr, "Hello I am the child process\n");
+        fprintf(stderr, "My pid is %d\n",getpid());
+        fprintf(stderr, "my_value is %i\n", my_value);
+        usleep(500000);
         exit(0);
     }
     else
     {
-       wait(&status);
-        printf("\n Hello I am the parent process ");
-        printf("\n My actual pid is %d \n ",getpid());
-        exit(1);
+        wait(&status);
+        fprintf(stderr, "Hello I am the parent process\n");
+        fprintf(stderr, "My pid is %d\n",getpid());
+        fprintf(stderr, "my_value is %i\n", my_value);
+        exit(0);
     }
-
 }
