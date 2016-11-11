@@ -7,7 +7,7 @@
 void* thread_function(void)
 {
     fprintf(stderr, "Hello I am a thread\n"
-                    "My pid is %d\n",
+                    "\tMy pid is %d\n",
                     getpid());
     //my_value = 18951;
     //fprintf(stderr, "my_value is %i\n", my_value);
