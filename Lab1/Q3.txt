@@ -1,0 +1,5 @@
+3.1 After running the task3 for 100 times, the output for pid changes every time task3 is executed.my_value is always 42 for the parent and 18951 for the child. Order of child parent value is always the same.
+
+3.2 By using pipe, the reading gets blocked when writing is being processed and vice versa. Therefore, thread synchronization is not an issue. Disadvantage is that pipe might be slower than having a variable in shared memory because in one pipe, only read or write can be done at the one time.
+
+
