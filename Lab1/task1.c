@@ -11,7 +11,15 @@ int main()
     int status;
     int pid;
 
+    // Fork and check for error
     pid = fork();
+    if (pid < 0)
+    {
+        fprintf(stderr,"Error\n");
+        exit(1);
+    }
+
+    // Initial sleep of 150ms
     int sleep_err = usleep(150000);
     if (sleep_err == -1)
     {
@@ -19,14 +27,7 @@ int main()
         exit(1);
     }
 
-    // Something went wrong
-    if (pid < 0)
-    {
-        fprintf(stderr,"Error\n");
-        exit(1);
-    }
-
-    // Parent process announces the creation
+    // Parent process announces child creation
     if (pid != 0)
     {
         fprintf(stderr, "Child Process with pid %i created\n", pid);

@@ -82,10 +82,8 @@ int main()
     char message[100];
 
     // Parent process prints values. sprintf stores into a variable message
-    sprintf(message, "Hi, I am your parent.\n"
-                    "\tMy pid=%d\n"
-                    "\tmy_value=%i\n",
-                    getpid(), my_value);
+    sprintf(message, "Hi, I am your parent. My PID=%d and my_value=%d",
+            getpid(), my_value);
 
     // Close reading on Parent
     close(fd[0]);
