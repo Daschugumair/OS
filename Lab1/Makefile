@@ -1,6 +1,6 @@
 CC=gcc
 
-all : task1 task2 task3 task4
+all : task1 task2 task3 task4 task5
 .PHONY : all
 
 task1: task1.c
@@ -15,6 +15,8 @@ task3: task3.c
 task4: task4.c
 	$(CC) -Wall task4.c -o task4 -lrt
 
+task5: task5.c
+	$(CC) -Wall task5.c -o task5 -lrt
 
 .PHONY: clean
 clean:

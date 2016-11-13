@@ -1,6 +1,9 @@
 *.class
 *.pdf
 
+# Task binaries
+Lab*/task[^.]
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
