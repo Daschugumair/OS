@@ -1,0 +1,9 @@
+4.1:
+There is no significant difference between the execution results of 3.1 and 4.1.
+Pipes are good for scenarios where communication is unidirectional between only 2 processes.
+If more processes are involved in the communication or messages are sent in more than one direction a message queue is the right choice.
+
+4.2:
+If a master process sends messages to a group of workers instead of a specific worker a message queue can be used.
+The master process is not interested in who receives the message and performs corresponding work but wants someone to receive it.
+Afterwards the results can also be returned via the same queue if needed.
