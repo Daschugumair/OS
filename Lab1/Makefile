@@ -20,4 +20,4 @@ task5: task5.c
 
 .PHONY: clean
 clean:
-	rm -vf task1 task2 task3 task4
+	rm -vf task1 task2 task3 task4 task5
